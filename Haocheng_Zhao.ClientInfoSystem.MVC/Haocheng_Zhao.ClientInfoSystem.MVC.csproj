@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Haocheng_Zhao.ClientInfoSystem.ApplicationCore\Haocheng_Zhao.ClientInfoSystem.ApplicationCore.csproj" />
+    <ProjectReference Include="..\Haocheng_Zhao.ClientInfoSystem.Infrastructure\Haocheng_Zhao.ClientInfoSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
