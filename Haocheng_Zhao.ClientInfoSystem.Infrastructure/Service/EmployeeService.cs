@@ -87,7 +87,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
             return model;
         }
 
-        public async Task<Employees> UpdateNewEmployee(EmployeeRequestModel model)
+        public async Task<Employees> UpdateEmployee(EmployeeRequestModel model)
         {
             var employee = new Employees()
             {

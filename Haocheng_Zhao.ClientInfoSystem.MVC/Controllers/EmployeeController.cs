@@ -34,5 +34,28 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC.Controllers
             await _employeeService.AddNewEmployee(model);
             return LocalRedirect("~/");
         }
+
+
+        [HttpGet]
+        public IActionResult UpdateEmployee(int id, string name, string designation)
+        {
+            ViewData["id"] = id;
+            ViewData["name"] = name;
+            ViewData["designation"] = designation;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateEmployee(EmployeeRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            await _employeeService.UpdateEmployee(model);
+            return LocalRedirect("~/");
+        }
+
+
+
     }
 }

@@ -57,7 +57,6 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
             var client = new Clients()
             {
                 Id = model.Id
-
             };
             return await _clientRepository.DeleteAsync(client);
         }

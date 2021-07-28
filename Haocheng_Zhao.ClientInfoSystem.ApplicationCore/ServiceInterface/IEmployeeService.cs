@@ -14,7 +14,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface
         Task<List<EmployeeResponseModel>> AllEmployees();
         Task<EmployeeResponseModel> GetEmployeeById(int id);
         Task<Employees> AddNewEmployee(EmployeeRequestModel model);
-        Task<Employees> UpdateNewEmployee(EmployeeRequestModel model);
+        Task<Employees> UpdateEmployee(EmployeeRequestModel model);
         Task<Employees> DeleteEmployee(EmployeeRequestModel model);
     }
 }
