@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity
+namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model
 {
-    public class Clients
+    public class ClientResponseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,6 +14,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity
         public string Phones { get; set; }
         public string Address { get; set; }
         public DateTime? AddedOn { get; set; }
-        public IEnumerable<Interactions> Interactions { get; set; }
+        public IEnumerable<InteractionResponseModel> InteractionModels { get; set; }
+
     }
 }

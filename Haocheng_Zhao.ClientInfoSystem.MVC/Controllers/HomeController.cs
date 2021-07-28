@@ -6,17 +6,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.RepositoryInterface;
+using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity;
 
 namespace Haocheng_Zhao.ClientInfoSystem.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {

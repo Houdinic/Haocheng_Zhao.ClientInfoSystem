@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity
+namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model
 {
-    public class Interactions
+    public class InteractionRequestModel
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
@@ -14,7 +14,5 @@ namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity
         public string IntType { get; set; }
         public DateTime? IntDate { get; set; }
         public string Remarks { get; set; }
-        public Clients Client { get; set; }
-        public Employees Emp { get; set; }
     }
 }

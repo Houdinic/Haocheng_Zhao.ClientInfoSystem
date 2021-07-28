@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity
+namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model
 {
-    public class Employees
+    public class EmployeeResponseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
         public string Designation { get; set; }
-        public IEnumerable<Interactions> Interactions { get; set; }
+        public IEnumerable<InteractionResponseModel> InteractionModels { get; set; }
     }
 }

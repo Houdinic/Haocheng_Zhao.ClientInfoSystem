@@ -1,0 +1,35 @@
+﻿@model List<Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model.InteractionResponseModel>;
+
+@if (Model.Count == 0)
+{
+    <h2 class="text-black-50">No Interactions found for this Client</h2>
+}
+else
+{
+    <div class="mb-4 shadow bg-light">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Client Id</th>
+                    <th scope="col">Employee Id</th>
+                    <th scope="col">Interaction Type</th>
+                    <th scope="col">Interaction Date</th>
+                    <th scope="col">Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var interactions in Model)
+                {
+                    <tr>
+                        <th scope="row">@interactions.ClientId</th>
+                        <td>@interactions.EmpId</td>
+                        <td>@interactions.IntType</td>
+                        <td>@interactions.IntDate</td>
+                        <td>@interactions.Remarks</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+

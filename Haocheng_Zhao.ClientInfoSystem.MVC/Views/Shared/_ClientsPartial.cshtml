@@ -1,0 +1,31 @@
+﻿@using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface
+@inject IClientService clientService;
+
+
+<a class="btn btn-success position-sticky" asp-controller="Client" asp-action="AddClient"> Add </a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Client Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in await clientService.AllClients())
+        {
+        <tr>
+            <th scope="row">@client.Id</th>
+            <td><a asp-controller="Client" asp-action="Details" asp-route-id="@client.Id">@client.Name</a></td>
+            <td>@client.Email</td>
+            <td>@client.Phones</td>
+            <td><a class="btn btn-secondary" asp-controller="Client" asp-action="UpdateClient" asp-route-id="@client.Id" asp-route-name="@client.Name"asp-route-email="@client.Email" asp-route-address="@client.Address" asp-route-phones="@client.Phones"> Update </a> 
+            <a class="btn btn-danger" asp-controller="Client" asp-action="Delete" asp-route-id="@client.Id"> Delete </a></td>
+        </tr>
+        }
+        
+
+    </tbody>
+</table>

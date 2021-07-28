@@ -1,0 +1,43 @@
+﻿@model Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model.ClientRequestModel;
+<div class="container-fluid">
+
+    <h3> Update Client </h3>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <form asp-action="AddClient">
+
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="Id">Client Id</label>
+                    <input asp-for="Id" class="form-control" value="@ViewData["id"]">
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email address</label>
+                    <input asp-for="Email" class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phones">Phones</label>
+                    <input asp-for="Phones" class="form-control">
+                    <span asp-validation-for="Phones" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address">Address</label>
+                    <input asp-for="Address" class="form-control">
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit changes</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>

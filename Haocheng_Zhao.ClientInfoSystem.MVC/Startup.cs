@@ -1,6 +1,8 @@
+using Haocheng_Zhao.ClientInfoSystem.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.RepositoryInterface;
+using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface;
+using Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service;
+using Haocheng_Zhao.ClientInfoSystem.Infrastructure.Repository;
+using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Entity;
 
 namespace Haocheng_Zhao.ClientInfoSystem.MVC
 {
@@ -24,6 +31,14 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IAsyncRepository<Interactions>, EfRepository<Interactions>>();
+            services.AddScoped<IClientService, ClientService>();
+
+            services.AddDbContext<ClientInfoSystemDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("ClientInforSystemConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
