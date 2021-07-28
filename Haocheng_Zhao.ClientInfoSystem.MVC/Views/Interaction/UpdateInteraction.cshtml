@@ -1,0 +1,45 @@
+﻿@model Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model.InteractionRequestModel;
+
+
+<h3> Update Interation </h3>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <form asp-action="UpdateInteraction">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Id"> Id</label>
+                <input asp-for="Id" class="form-control" value="@ViewData["id"]">
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientId">Client Id</label>
+                <input asp-for="ClientId" class="form-control" value="@ViewData["clientid"]">
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpId">Employee Id</label>
+                <input asp-for="EmpId" class="form-control" value="@ViewData["empid"]">
+                <span asp-validation-for="EmpId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntType">Interaction Type</label>
+                <input asp-for="IntType" class="form-control">
+                <span asp-validation-for="IntType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntDate">Interaction Date</label>
+                <input asp-for="IntDate" class="form-control">
+                <span asp-validation-for="IntDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks">Remarks</label>
+                <input asp-for="Remarks" class="form-control">
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+
+    </div>
+</div>

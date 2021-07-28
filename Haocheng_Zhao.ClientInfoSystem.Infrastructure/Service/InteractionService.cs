@@ -60,19 +60,32 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
             return models;
         }
 
-        public Task<InteractionResponseModel> GetInteractionById(int id)
+
+        public async Task<Interactions> DeleteInteraction(InteractionRequestModel model)
         {
-            throw new NotImplementedException();
+            var interaction = new Interactions()
+            {
+                Id = model.Id,
+            };
+            await _interactionRepo.DeleteAsync(interaction);
+            return interaction;
         }
 
-        Task<Interactions> IInteractionService.DeleteInteraction(InteractionRequestModel model)
+        public async Task<Interactions> UpdateInteraction(InteractionRequestModel model)
         {
-            throw new NotImplementedException();
-        }
 
-        Task<Interactions> IInteractionService.UpdateInteraction(InteractionRequestModel model)
-        {
-            throw new NotImplementedException();
+            var interact = new Interactions()
+            {
+                Id=model.Id,
+                ClientId = model.ClientId,
+                EmpId = model.EmpId,
+                IntDate = model.IntDate,
+                IntType = model.IntType,
+                Remarks = model.Remarks,
+
+            };
+            await _interactionRepo.UpdateAsync(interact);
+            return interact;
         }
     }
 }

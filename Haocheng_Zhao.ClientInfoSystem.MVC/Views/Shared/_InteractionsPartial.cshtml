@@ -17,6 +17,7 @@ else
                     <th scope="col">Interaction Type</th>
                     <th scope="col">Interaction Date</th>
                     <th scope="col">Remark</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,10 @@ else
                         <td>@interactions.IntType</td>
                         <td>@interactions.IntDate</td>
                         <td>@interactions.Remarks</td>
+                        <td>
+                            <a class="btn btn-secondary" asp-controller="Interaction" asp-action="UpdateInteraction" asp-route-id="@interactions.Id" asp-route-empid="@interactions.EmpId" asp-route-clientid="@interactions.ClientId"> Update </a>
+                            <a class="btn btn-danger" asp-controller="Interaction" asp-action="Delete" asp-route-id="@interactions.Id"> Delete </a>
+                        </td>
                     </tr>
                 }
             </tbody>

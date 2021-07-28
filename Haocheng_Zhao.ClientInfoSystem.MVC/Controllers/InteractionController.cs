@@ -35,5 +35,33 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC.Controllers
             await _interactionService.AddNewInteraction(model);
             return RedirectToAction("Index");
         }
+        
+        [HttpGet]
+        public IActionResult UpdateInteraction(int id, int empid, int clientid)
+        {
+            ViewData["id"] = id;
+            ViewData["empid"] = empid;
+            ViewData["clientid"] = clientid;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateInteraction(InteractionRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            await _interactionService.UpdateInteraction(model);
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var interaction = new InteractionRequestModel()
+            {
+                Id = id
+            };
+            await _interactionService.DeleteInteraction(interaction);
+            return RedirectToAction("Index");
+        }
     }
 }

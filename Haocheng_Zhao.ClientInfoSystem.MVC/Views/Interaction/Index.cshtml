@@ -1,8 +1,7 @@
 ﻿@model List<Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model.InteractionResponseModel>;
 
+<div class="container-fluid">
+    <a class="btn btn-success position-sticky" asp-controller="Interaction" asp-action="AddInteraction">Add New Interaction</a>
 
-<a asp-controller="Interaction" asp-action="AddInteraction">Add New Interaction</a>
-
-<partial name="_InteractionsPartial"  model="Model"/>
-
-
+    <partial name="_InteractionsPartial" model="Model" />
+</div>

@@ -62,6 +62,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

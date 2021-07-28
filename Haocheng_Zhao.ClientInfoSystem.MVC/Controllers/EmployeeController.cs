@@ -55,7 +55,15 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC.Controllers
             return LocalRedirect("~/");
         }
 
-
+        public async Task<IActionResult> Delete(int id)
+        {
+            var employee = new EmployeeRequestModel()
+            {
+                Id = id
+            };
+            await _employeeService.DeleteEmployee(employee);
+            return LocalRedirect("~/");
+        }
 
     }
 }
