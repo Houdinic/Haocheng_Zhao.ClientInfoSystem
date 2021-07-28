@@ -31,7 +31,8 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Data
         {
             obj.HasKey(e => e.Id);
             obj.Property(e => e.Name).HasMaxLength(50);
-            obj.Property(e => e.Password).HasMaxLength(10);
+            obj.Property(u => u.Password).HasMaxLength(1024);
+            obj.Property(u => u.Salt).HasMaxLength(1024);
             obj.Property(e => e.Designation).HasMaxLength(50);
         }
 

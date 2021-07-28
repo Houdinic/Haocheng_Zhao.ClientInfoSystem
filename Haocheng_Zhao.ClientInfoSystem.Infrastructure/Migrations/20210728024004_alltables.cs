@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Migrations
 {
-    public partial class addtables : Migration
+    public partial class alltables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,8 +31,9 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    Designation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    Password = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: true),
+                    Designation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Salt = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {

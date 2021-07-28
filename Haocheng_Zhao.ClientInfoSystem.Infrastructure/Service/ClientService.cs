@@ -95,6 +95,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
 
         public async Task<Clients> UpdateNewClient(ClientRequestModel model)
         {
+
             var client = new Clients()
             {
                 Id = model.Id,

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ClientInfoSystemDbContext))]
-    [Migration("20210726214111_addtables")]
-    partial class addtables
+    [Migration("20210728024004_alltables")]
+    partial class alltables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,8 +68,12 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<string>("Salt")
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
 
                     b.HasKey("Id");
 

@@ -26,14 +26,14 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Repository
             }
             return client;
         }
-        public override async Task<Clients> DeleteAsync(Clients entity)
-        {
-            if (await _dbContext.Interactions.AnyAsync(i=>i.ClientId==entity.Id))
-            {
-                throw new Exception($"There are interactions existing for this client, delete interactions first");
-            }
-            var cl=await _dbContext.Clients.FirstOrDefaultAsync(c => c.Id == entity.Id);
-            return await base.DeleteAsync(cl);
-        }
+        //public override async Task<Clients> DeleteAsync(Clients entity)
+        //{
+        //    if (await _dbContext.Interactions.AnyAsync(i=>i.ClientId==entity.Id))
+        //    {
+        //        throw new Exception($"There are interactions existing for this client, delete interactions first");
+        //    }
+        //    var cl=await _dbContext.Clients.FirstOrDefaultAsync(c => c.Id == entity.Id);
+        //    return await base.DeleteAsync(cl);
+        //}
     }
 }

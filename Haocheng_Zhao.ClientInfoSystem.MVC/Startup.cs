@@ -35,6 +35,8 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IAsyncRepository<Interactions>, EfRepository<Interactions>>();
             services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddDbContext<ClientInfoSystemDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("ClientInforSystemConnection"));
