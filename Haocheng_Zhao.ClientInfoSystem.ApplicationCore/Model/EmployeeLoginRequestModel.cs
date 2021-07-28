@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model
 {
-    public class EmployeeRequestModel
+    public class EmployeeLoginRequestModel
     {
-        public int Id { get; set; }
         [Required]
-        [StringLength(64)]
+        [StringLength(50)]
         public string Name { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(100, ErrorMessage = "The passowrd should be minimum of 8 characters", MinimumLength = 8)]
         public string Password { get; set; }
-        [StringLength(500)]
-        public string Designation { get; set; }
     }
 }

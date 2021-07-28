@@ -104,6 +104,34 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
             return employee;
         }
 
+        public async Task<EmployeeResponseModel> Login(string name, string password)
+        {
+            var dbUser = await _employeeRepository.GetByName(name);
+            if (dbUser == null)
+            {
+                throw new Exception("Employee does not exists, please register first");
+            }
+
+            var hashedPssword = HashPassword(password, dbUser.Salt);
+
+            if (hashedPssword == dbUser.Password)
+            {
+                // good, correct password
+
+                var employeeLoginRespone = new EmployeeResponseModel
+                {
+
+                    Id = dbUser.Id,
+                    Name = dbUser.Name,
+                    Designation = dbUser.Designation,
+                };
+
+                return employeeLoginRespone;
+            }
+
+            return null;
+        }
+
         private string HashPassword(string password, string salt)
         {
             // Aarogon

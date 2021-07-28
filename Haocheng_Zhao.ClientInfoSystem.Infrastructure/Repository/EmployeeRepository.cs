@@ -22,5 +22,9 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Repository
             var employee = await _dbContext.Employees.Include(c => c.Interactions).FirstOrDefaultAsync(c => c.Id == id);
             return employee;
         }
+        public async Task<Employees> GetByName(string name)
+        {
+            return await _dbContext.Employees.FirstOrDefaultAsync(e => e.Name == name);
+        }
     }
 }

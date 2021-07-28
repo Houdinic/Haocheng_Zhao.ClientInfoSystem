@@ -16,5 +16,6 @@ namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface
         Task<Employees> AddNewEmployee(EmployeeRequestModel model);
         Task<Employees> UpdateEmployee(EmployeeRequestModel model);
         Task<Employees> DeleteEmployee(EmployeeRequestModel model);
+        Task<EmployeeResponseModel> Login(string name, string password);
     }
 }

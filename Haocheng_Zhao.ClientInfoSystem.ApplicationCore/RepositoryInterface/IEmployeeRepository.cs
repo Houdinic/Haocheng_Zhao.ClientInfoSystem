@@ -9,5 +9,6 @@ namespace Haocheng_Zhao.ClientInfoSystem.ApplicationCore.RepositoryInterface
 {
     public interface IEmployeeRepository: IAsyncRepository<Employees>
     {
+        public Task<Employees> GetByName(string name);
     }
 }

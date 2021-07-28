@@ -1,0 +1,26 @@
+﻿@using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface;
+@inject ICurrentEmployeeService currentUser
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div >
+        <a class="btn btn-info" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Welcome, @currentUser.Name
+        </a>
+        <a class="btn btn-secondary" asp-controller="Employee" asp-action="Logout">Logout</a>
+    </div>
+
+}
+else
+{
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item pr-4">
+                <a class="btn btn-outline-primary" asp-controller="Employee" asp-action="Login"> Login </a>
+            </li>
+            <li class="nav-item pr-4">
+                <a class="btn btn-outline-info position-sticky" asp-controller="Employee" asp-action="AddEmployee">New Employee Register  </a>
+            </li>
+        </ul>
+    </div>
+}
