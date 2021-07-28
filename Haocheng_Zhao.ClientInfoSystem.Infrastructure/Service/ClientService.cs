@@ -64,6 +64,10 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
         public async Task<ClientResponseModel> GetClientById(int id)
         {
             var client = await _clientRepository.GetByIdAsync(id);
+            if (client==null)
+            {
+                throw new Exception("Cannot find Client");
+            }
             var model = new ClientResponseModel()
             {
                 Id = client.Id,

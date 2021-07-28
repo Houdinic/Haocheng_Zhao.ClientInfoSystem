@@ -18,8 +18,8 @@
                 <th scope="row">@employee.Id</th>
                 <td><a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id">@employee.Name</a></td>
                 <td>
-                    <a class="btn btn-secondary" asp-controller="Client" asp-action="UpdateClient" asp-route-id="@employee.Id" asp-route-name="@employee.Name" asp-route-email="@employee.Designation" > Update </a>
-                    <a class="btn btn-danger" asp-controller="Client" asp-action="Delete" asp-route-id="@employee.Id"> Delete </a>
+                    <a class="btn btn-secondary" asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@employee.Id" asp-route-name="@employee.Name" asp-route-email="@employee.Designation" > Update </a>
+                    <a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id"> Delete </a>
                 </td>
             </tr>
         }

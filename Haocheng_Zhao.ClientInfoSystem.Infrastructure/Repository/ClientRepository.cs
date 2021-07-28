@@ -20,10 +20,6 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Repository
         public override async Task<Clients> GetByIdAsync(int id)
         {
             var client= await _dbContext.Clients.Include(c => c.Interactions).FirstOrDefaultAsync(c => c.Id == id);
-            if (client==null)
-            {
-                throw new Exception($"Cannot find client with primary key {id} in DB ");
-            }
             return client;
         }
         //public override async Task<Clients> DeleteAsync(Clients entity)

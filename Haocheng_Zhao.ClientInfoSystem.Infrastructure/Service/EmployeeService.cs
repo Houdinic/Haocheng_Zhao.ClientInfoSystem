@@ -63,6 +63,10 @@ namespace Haocheng_Zhao.ClientInfoSystem.Infrastructure.Service
         public async Task<EmployeeResponseModel> GetEmployeeById(int id)
         {
             var employee = await _employeeRepository.GetByIdAsync(id);
+            if (employee == null)
+            {
+                throw new Exception($"Cannot find client with primary key {id} in DB ");
+            }
             var model = new EmployeeResponseModel()
             {
                 Id = employee.Id,
