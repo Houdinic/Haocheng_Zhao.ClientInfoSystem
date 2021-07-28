@@ -75,7 +75,7 @@ namespace Haocheng_Zhao.ClientInfoSystem.MVC.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
 
         [HttpPost]

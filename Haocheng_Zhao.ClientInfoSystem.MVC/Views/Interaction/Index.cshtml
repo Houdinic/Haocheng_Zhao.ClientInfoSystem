@@ -1,7 +1,11 @@
 ﻿@model List<Haocheng_Zhao.ClientInfoSystem.ApplicationCore.Model.InteractionResponseModel>;
+@using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface;
+@inject ICurrentEmployeeService currentUser
 
 <div class="container-fluid">
+    @if (User.Identity.IsAuthenticated)
+    { 
     <a class="btn btn-success position-sticky" asp-controller="Interaction" asp-action="AddInteraction">Add New Interaction</a>
-
+    }
     <partial name="_InteractionsPartial" model="Model" />
 </div>

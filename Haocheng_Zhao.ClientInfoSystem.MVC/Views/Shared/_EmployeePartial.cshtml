@@ -1,27 +1,34 @@
 ﻿@using Haocheng_Zhao.ClientInfoSystem.ApplicationCore.ServiceInterface
 @inject IEmployeeService employeeService;
+@inject ICurrentEmployeeService currentUser
 
-
-<a class="btn btn-success position-sticky" asp-controller="Employee" asp-action="AddEmployee"> Add Employee </a>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Employee Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Actions</th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th scope="col">Actions</th>
+            }
         </tr>
     </thead>
     <tbody>
         @foreach (var employee in await employeeService.AllEmployees())
         {
-            <tr>
-                <th scope="row">@employee.Id</th>
-                <td><a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id">@employee.Name</a></td>
-                <td>
-                    <a class="btn btn-secondary" asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@employee.Id" asp-route-name="@employee.Name" asp-route-email="@employee.Designation" > Update </a>
-                    <a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id"> Delete </a>
-                </td>
-            </tr>
+        <tr>
+            <th scope="row">@employee.Id</th>
+            <td><a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id">@employee.Name</a></td>
+            @if (User.Identity.IsAuthenticated)
+            { 
+        <td>
+            <a class="btn btn-secondary" asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@employee.Id" asp-route-name="@employee.Name" asp-route-email="@employee.Designation"> Update </a>
+            <a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id"> Delete </a>
+        </td>
+            
+            }
+            
+        </tr>
         }
 
 
